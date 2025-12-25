@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Secret</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff0066, #ffcc00);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        input, button {
+            padding: 0.5rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background: #ff0066;
+            color: white;
+            cursor: pointer;
+        }
+        .erreur {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Joyeux Noël ma bby Jojo ♥️ ✨</h1>
+        <p>Quel est le mot secret beauté 😏 ? :</p>
+        <form method="POST">
+            <input type="password" name="code" placeholder="C'est le plus beau prénom😍" required>
+            <button type="submit">Valider</button>
+        </form>
+        {% if erreur %}
+            <p class="erreur">Code incorrect, réessaie !</p>
+        {% endif %}
+    </div>
+</body>
+</html>

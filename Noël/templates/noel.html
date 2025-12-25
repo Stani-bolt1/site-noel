@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Noël, ma bby Joëlle !</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 1.5em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .tab {
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tab.active {
+            background: #ff0066;
+        }
+        .content {
+            display: none;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 1rem auto;
+            max-width: 800px;
+        }
+        .content.active {
+            display: block;
+        }
+        audio {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .content img {
+            border: 3px solid white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+
+        .content img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="snowflakes" id="snowflakes"></div>
+    <div class="container">
+        <h1>✨ Joyeux Noël, mon amour Joëlle! ✨</h1>
+        <p>Un petit message rien que pour toi...</p>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="message">Message</div>
+            <div class="tab" data-tab="design1">😚</div>
+            <div class="tab" data-tab="design2">😘</div>
+            <div class="tab" data-tab="design3">♥️</div>
+            <div class="tab" data-tab="music">🎶</div>
+        </div>
+
+        <div class="content active" id="message">
+            <h2>Mon Message pour Toi</h2>
+            <p>Mon amour Joëlle, En ce jour si doux et si symbolique qu’est Noël, je tiens à t’adresser bien plus qu’un simple vœu.
+                Je t’envoie tout mon amour, toute ma tendresse et toute la chaleur de mon cœur. Que cette fête soit pour toi un moment de paix,
+                de réconfort et de lumière, malgré la distance ou les épreuves que la vie peut parfois imposer.
+                Sache que tu occupes une place précieuse dans mes pensées et dans mon cœur. Je te souhaite un Noël rempli de douceur,
+                de sourires sincères, de sérénité et d’espérance. Que chaque instant de cette journée te rappelle combien tu es aimée,
+                estimée et soutenue.
+                Je te souhaite que les jours à venir t’apportent force, courage et joie, et que l’avenir nous offre encore de beaux moments à partager.
+                Joyeux Noël, mon amour. Prends soin de toi, aujourd’hui et toujours.
+                <br>Avec tout mon amour. 💖<br>Je t'aime énormément mon amour</p>
+        </div>
+
+        <div class="content" id="design1">
+            <h2>Joyeux Noëlle mon amour</h2>
+            <p>✨✨✨</p>
+            <div class="galery">
+                <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Sapin de Noël">
+            </div>
+        </div>
+
+        <div class="content" id="design2">
+            <h2>Mes meilleurs voeux</h2>
+            <p>✨✨✨ Notre premier Noël ✨✨✨</p>
+            <div class="galery">
+                <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Étoiles et Lumières">
+            </div>
+        </div>
+
+        <div class="content" id="design3">
+            <h2>Joyeux Noël mon coeur</h2>
+            <p>✨✨✨</p>
+            <div class="galery">
+                <img src="{{ url_for('static', filename='images/joni.jpeg') }}" alt="Joyeux Noël mon amour" width="300" height="200">
+                <img src="{{ url_for('static', filename='images/joni2.jpeg') }}" alt="Joyeux Noël mon amour" width="300" height="200">
+                <img src="{{ url_for('static', filename='images/joni3.jpeg') }}" alt="Joyeux Noël mon amour" width="300" height="200">
+            </div>
+            <p>✨✨✨ Ton sourire est la plus belle des choses que j'aime contempler ✨✨✨</p>
+        </div>
+
+        <div class="content" id="music">
+            <h2>Musiques de Noël</h2>
+            <p>✨✨✨ ♥️♥️♥️Les musiques qui me font penser à toi♥️♥️♥️ ✨✨✨</p>
+            <audio controls>
+                <source src="{{ url_for('static', filename='musics/amir.mp3') }}" type="audio/mpeg">
+                Ton navigateur ne supporte pas l'élément audio.
+            </audio>
+            <audio controls>
+                <source src="{{ url_for('static', filename='musics/souf.mp3') }}" type="audio/mpeg">
+                Ton navigateur ne supporte pas l'élément audio.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // Animation des flocons de neige
+        document.addEventListener('DOMContentLoaded', function() {
+            const snowflakes = document.getElementById('snowflakes');
+            for (let i = 0; i < 100; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.textContent = '❄';
+                flake.style.left = Math.random() * 100 + 'vw';
+                flake.style.animationDuration = Math.random() * 5 + 3 + 's';
+                flake.style.opacity = Math.random();
+                snowflakes.appendChild(flake);
+            }
+            // Gestion des onglets
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
